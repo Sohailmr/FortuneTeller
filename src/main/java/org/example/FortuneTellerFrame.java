@@ -22,7 +22,6 @@ public class FortuneTellerFrame extends JFrame {
         setLocationRelativeTo(null);
         setLayout(new BorderLayout());
 
-        // ---- TOP PANEL ----
         JLabel titleLabel = new JLabel("Fortune Teller", SwingConstants.CENTER);
         titleLabel.setFont(new Font("Serif", Font.BOLD, 48));
         URL imageUrl = getClass().getClassLoader().getResource("images.jpeg");
@@ -35,12 +34,12 @@ public class FortuneTellerFrame extends JFrame {
         ImageIcon originalIcon = new ImageIcon(imageUrl);
         Image originalImage = originalIcon.getImage();
 
-// Resize the image (Adjust width & height as needed)
-        int newWidth = 150;  // Keep proportional width
-        int newHeight = 50; // Reduce height
+
+        int newWidth = 150;
+        int newHeight = 50;
         Image resizedImage = originalImage.getScaledInstance(newWidth, newHeight, Image.SCALE_SMOOTH);
 
-// Create resized icon
+
         ImageIcon resizedIcon = new ImageIcon(resizedImage);
 
         titleLabel.setIcon(resizedIcon);
@@ -93,9 +92,9 @@ public class FortuneTellerFrame extends JFrame {
         String newFortune;
         do {
             newFortune = fortunes.get(rand.nextInt(fortunes.size()));
-        } while (newFortune.equals(lastFortune)); // Ensure it's different
+        } while (newFortune.equals(lastFortune));
 
-        lastFortune = newFortune; // Store last fortune to prevent repetition
+        lastFortune = newFortune;
         fortuneArea.append(newFortune + "\n");
     }
 }
